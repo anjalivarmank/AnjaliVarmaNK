@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST" action="{% url 'updateadmin' dataid=data.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+<div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Edit Admin Details</h4>
+
+
+                      <div class="form-group">
+                        <label for="exampleInputName1">Name</label>
+                        <input type="text" name="name" class="form-control" id="exampleInputName1" placeholder="Name" value="{{data.Name}}">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail3">Mobile Number</label>
+                        <input type="text" name="mob" class="form-control" id="exampleInputEmail3" placeholder="Mob_No" value="{{data.Mobile}}">
+                      </div>
+                        <div class="form-group">
+                        <label for="exampleInputPassword4">Email Id</label>
+                        <input type="email" name="email" class="form-control" id="exampleInputPassword4" placeholder="Enter mail id" value="{{data.Email}}">
+                      </div>
+
+                        <div class="form-group">
+                        <label for="exampleInputPassword4">Username</label>
+                        <input type="text" name="username" class="form-control" id="exampleInputPassword4" placeholder="Enter username" value="{{data.Username}}">
+                      </div>
+                         <div class="form-group">
+                        <label for="exampleInputPassword4">password</label>
+                        <input type="password" name="pwd" class="form-control" id="exampleInputPassword4" placeholder="enter password" value="{{data.Password}}">
+                      </div>
+                         <div class="form-group">
+                        <label for="exampleInputPassword4">Conform Password</label>
+                        <input type="password" name="cpwd" class="form-control" id="exampleInputPassword4" placeholder="Re enter the password" value="{{data.Conformpassword}}">
+                      </div>
+
+                     <div class="form-group">
+                    <label for="exampleInputFile">File input</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile" name="image" value="{{data.Image.url}}">
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                    </div>
+                  </div>
+                      <button onclick="alert('update?')" type="submit" class="btn btn-primary mr-2">update</button>
+
+                  </div>
+                </div>
+              </div>
+</form>
+
+</body>
+</html>
+{% endblock %}
